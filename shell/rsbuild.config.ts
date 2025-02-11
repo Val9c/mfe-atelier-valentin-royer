@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     pluginReact(),
     pluginModuleFederation({
-      name: 'federation_provider',
+      name: 'shell',
       exposes: {
         './button': './src/button.tsx',
       },
