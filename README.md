@@ -1,66 +1,73 @@
-Micro Frontend avec Module Federation et Rsbuild
+# Micro Frontend avec Module Federation et Rsbuild
 
-📌 Objectif
+## 📌 Objectif
 
 Ce projet met en place une architecture Micro Frontend (MFE) en utilisant Module Federation avec Rsbuild et React. Il est composé de deux applications indépendantes :
 
-` : Fournit un composant Button.
+- `shell` : Application hôte (Consommateur) qui intègre un micro frontend distant.
+- `header-mfe` : Micro frontend (Producteur) qui expose un composant Header.
 
-` : Consomme le composant Button via Module Federation.
+## 📂 Structure du projet
 
-📂 Structure du projet
-
+```
 /mfe-atelier-valentin-royer
-│── /shell  (Application hôte - Producteur)
-│── /header-mfe  (Micro frontend - Consommateur)
+│── /shell  (Application hôte - Consommateur)
+│── /header-mfe  (Micro frontend - Producteur)
+```
 
-🚀 Installation et exécution
+## 🚀 Installation et exécution
 
-1️⃣ Cloner le projet
+### 1️⃣ Cloner le projet
 
-git clone https://github.com/valentin-royer/mfe-atelier-valentin-royer.git
+```sh
+git clone https://github.com/Val9c/mfe-atelier-valentin-royer.git
 cd mfe-atelier-valentin-royer
+```
 
-2️⃣ Installer les dépendances
+### 2️⃣ Installer les dépendances
 
-📦 Producteur
+📦 **Producteur**
 
-cd shell
+```sh
+cd header-mfe
 npm install
+```
 
-📦 Consommateur
+📦 **Consommateur**
 
-cd ../header-mfe
+```sh
+cd ../shell
 npm install
+```
 
-3️⃣ Lancer les applications
+### 3️⃣ Lancer les applications
 
-▶️ Démarrer le Producteur
+▶️ **Démarrer le Producteur (header-mfe)**
 
-cd shell
+```sh
+cd header-mfe
 npm run dev
+```
 
-Vérifier que le manifeste est disponible à : http://localhost:3000/mf-manifest.json
+Vérifier que le manifeste est disponible à : [http://localhost:3000/mf-manifest.json](http://localhost:3000/mf-manifest.json)
 
-▶️ Démarrer le Consommateur
+▶️ **Démarrer le Consommateur (shell)**
 
-cd ../header-mfe
+```sh
+cd ../shell
 npm run dev
+```
 
-Accéder à l'application consommateur sur : http://localhost:2000/
+Accéder à l'application consommateur sur : [http://localhost:2000/](http://localhost:2000/)
 
-🛠️ Technologies utilisées
+## 🛠️ Technologies utilisées
 
-React
+- **React**
+- **Module Federation** (via `@module-federation/enhanced` et `@module-federation/rsbuild-plugin`)
+- **Rsbuild**
 
-Module Federation (via @module-federation/enhanced et @module-federation/rsbuild-plugin)
+## 📝 Fonctionnalités implémentées
 
-Rsbuild
-
-📝 Fonctionnalités implémentées
-
-Configuration de Module Federation pour exposer et consommer un composant distant.
-
-Hébergement du Producteur (`) sur http://localhost:3000.
-
-Intégration du Consommateur (`) sur http://localhost:2000.
+- Configuration de Module Federation pour exposer et consommer un composant distant.
+- Hébergement du Producteur (`header-mfe`) sur [http://localhost:3000](http://localhost:3000).
+- Intégration du Consommateur (`shell`) sur [http://localhost:2000](http://localhost:2000).

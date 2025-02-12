@@ -7,15 +7,14 @@ export default defineConfig({
     pluginReact(),
     pluginModuleFederation({
       name: 'shell',
-      exposes: {
-        './button': './src/button.tsx',
-        './Header': './src/header.tsx',
-        './Footer': './src/footer.tsx',
+      remotes: {
+        header_mfe:
+            'header-mfe@http://localhost:3000/mf-manifest.json',
       },
       shared: ['react', 'react-dom'],
     }),
   ],
   server: {
-    port: 3000,
+    port: 2000,
   },
 });
