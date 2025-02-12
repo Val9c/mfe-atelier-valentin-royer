@@ -9,6 +9,8 @@ export default defineConfig({
       name: 'shell',
       exposes: {
         './button': './src/button.tsx',
+        './Header': './src/header.tsx',
+        './Footer': './src/footer.tsx',
       },
       shared: ['react', 'react-dom'],
     }),
